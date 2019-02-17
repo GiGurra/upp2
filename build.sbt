@@ -4,7 +4,7 @@ ThisBuild / organization      := "com.github.gigurra"
 ThisBuild / organizationName  := "com.github.gigurra"
 ThisBuild / resolvers         += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
 ThisBuild / resolvers         += "jitpack" at "https://jitpack.io"
-
+ThisBuild / fork              := true // because loading native libraries on sbt run fucks things up otherwise
 
 lazy val root = (project in file("."))
   .settings(

@@ -9,9 +9,11 @@ import org.apache.commons.io.{FileUtils, IOUtils}
 
 import scala.util.Try
 
-package object upp2 {
+package object upp2 extends Logging {
 
   def putNativesOnJavaLibPath(): Unit = {
+
+    log.info(s"Putting native joystick libraries on java lib path")
 
     val tempRoot = System.getProperty("java.io.tmpdir")
     val nativesDir = s"$tempRoot/jinput-natives"
