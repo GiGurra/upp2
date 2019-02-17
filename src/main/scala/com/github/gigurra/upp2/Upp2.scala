@@ -1,6 +1,6 @@
 package com.github.gigurra.upp2
 
-import net.java.games.input.Controller
+import net.java.games.input.{Component, Controller}
 
 object Upp2 extends Logging {
 
@@ -26,6 +26,31 @@ object Upp2 extends Logging {
 
     val ascii = new AnsiPrinter
 
+    while (true) {
+
+      ascii.clearScreen()
+      for (controller <- selectedControllers) {
+        controller.undelying.poll()
+        ascii.text(s"$controller:").endl()
+
+        def isPressed(component: Component): Boolean = {
+          math.abs(component.getPollData) > 1e-5
+        }
+
+        for (component <- controller.undelying.getComponents) {
+          if (isPressed(component)) {
+            ascii.text(s"  ${component.getName}: ${component.getIdentifier}: ${component.getPollData}").endl()
+          }
+        }
+
+        ascii.endl()
+      }
+      ascii.endl()
+
+      Thread.sleep(150)
+    }
+
+    /*
     ascii.startOfLine().clearLine().text("first line").right(5).text("hook").text("123")
     Thread.sleep(1000)
     ascii.left().text("3").endl()
@@ -39,7 +64,7 @@ object Upp2 extends Logging {
     Thread.sleep(1000)
     ascii.up().clearLine().endl()
     ascii.up(3).text("wawa").down(3)
-
+*/
   }
 
   class AnsiPrinter(printer: String => Unit = print) {
