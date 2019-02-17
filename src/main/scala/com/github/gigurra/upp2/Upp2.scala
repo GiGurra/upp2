@@ -10,6 +10,11 @@ object Upp2 extends Logging {
 
     val allControllers: Array[Controller] = getAllSystemControllers
 
+    log.info(s"All controllers detected:")
+    for (controller <- allControllers) {
+      log.info(s"  $controller: ${controller.getComponents.mkString(", ")}")
+    }
+
     val controllerSelectionConfig = readControllerSelectionConfig()
 
     log.info(s"Controller selection filters:")
@@ -22,6 +27,11 @@ object Upp2 extends Logging {
     log.info(s"Selected controllers:")
     for (controller <- selectedControllers) {
       log.info(s"  $controller")
+    }
+
+    if (selectedControllers.isEmpty) {
+      log.info(s"No controllers selected for monitoring - exiting")
+      System.exit(0)
     }
 
     val ascii = new AnsiPrinter
