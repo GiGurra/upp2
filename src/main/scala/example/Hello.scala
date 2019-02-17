@@ -24,7 +24,10 @@ object Hello extends Greeting with App {
       "jinput-dx8_64.dll",
       "jinput-raw.dll",
       "jinput-raw_64.dll",
-      "jinput-wintab.dll"
+      "jinput-wintab.dll",
+      "libjinput-linux.so",
+      "libjinput-linux64.so",
+      "libjinput-osx.jnilib"
     )
 
     for (native <- natives) {
