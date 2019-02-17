@@ -60,9 +60,11 @@ object Hello extends Greeting with App {
       println(s"  device.getType: ${device.getType}")
       println(s"  device.getPortNumber: ${device.getPortNumber}")
       println(s"  device.getPortType ${device.getPortType}")
-      println(s"  device.getComponents: ${device.getComponents.toSeq}")
-      println(s"  device.getControllers: ${device.getControllers.toSeq}")
+      println(s"  device.getComponents: ${device.getComponents.mkString(", ")}")
+      println(s"  device.getControllers: ${device.getControllers.mkString(", ")}")
       println()
+
+      device.getComponent()
     }
   }
 
