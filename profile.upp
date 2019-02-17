@@ -1,0 +1,21 @@
+# This is an example profile.
+# Comments are written using # at the beginnong of the line (does not work in the middle of a line)
+
+
+--------------------- DEVICE SELECTION ---------------------
+# Do not edit the line above in any way.
+
+
+sources:
+    stick:
+        source-name: "Joystick"
+        source-components: "Y Axis, X Axis, Hat Switch, Button 0, Button 1, Button 2, Button 3, Button 4, Button 5, Button 6, Button 7, Button 8, Button 9, Button 10, Button 11, Button 12, Button 13, Button 14, Button 15, Button 16, Button 17, Button 18, Button 19, Button 20, Button 21, Button 22, Button 23, Button 24, Button 25, Button 26, Button 27, Button 28, Button 29, Button 30, Button 31"
+    throttle:
+        source-name: "CH PRO THROTTLE USB"
+    pedals:
+        source-name: "Saitek Pro Flight Combat Rudder Pedals"
+
+
+
+--------------------- DEVICE BINDINGS ---------------------
+# Do not edit the line above in any way.
