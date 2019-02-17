@@ -15,11 +15,8 @@ lazy val root = (project in file("."))
     libraryDependencies += "net.java.jinput" % "jinput-platform" % "2.0.7",
     libraryDependencies += "net.java.jinput" % "windows-plugin" % "2.0.9",
     libraryDependencies += "commons-io" % "commons-io" % "2.6",
-
-      /*libraryDependencies += scalaTest % Test,
-      libraryDependencies += jxinput,
-      libraryDependencies += jinput,
-      libraryDependencies += jinputNatives,*/
+    libraryDependencies += "io.circe" %% "circe-yaml" % "0.8.0",
+    libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.2.3"
   )
 
 // See https://www.scala-sbt.org/1.x/docs/Using-Sonatype.html for instructions on how to publish to Sonatype.

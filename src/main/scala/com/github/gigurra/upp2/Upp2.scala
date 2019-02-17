@@ -1,28 +1,25 @@
 package com.github.gigurra.upp2
 
-import java.io.{File, FileOutputStream}
+import net.java.games.input.Controller
 
-import com.github.strikerx3.jxinput.XInputDevice14
-import net.java.games.input.Event
-import org.apache.commons.io.IOUtils
+object Upp2 extends Logging {
 
-import scala.util.Try
+  def main(args: Array[String]): Unit = {
 
-object Upp2 extends Greeting with App {
+    putNativesOnJavaLibPath()
 
-  testJInput()
+    val allControllers: Array[Controller] = getAllSystemControllers
 
-  private def testJInput(): Unit = {
+    val controllerSelectionConfig = readControllerSelectionConfig()
 
-    val event = new Event
+    controllerSelectionConfig foreach println
 
-    import net.java.games.input.Controller
-    import net.java.games.input.ControllerEnvironment
+    val selectedControllers: Seq[MonitoredController] = allControllers.flatMap(c => controllerSelectionConfig.flatMap(_.matches(c)))
 
+    log.info(s"Selected controllers:")
+    for (controller <- selectedControllers) {
+      log.info(s"  $controller")
+    }
   }
 
-}
-
-trait Greeting {
-  lazy val greeting: String = "hello"
 }

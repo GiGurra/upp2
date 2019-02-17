@@ -1,7 +1,6 @@
 package com.github.gigurra.upp2
 
 import com.github.strikerx3.jxinput.XInputDevice14
-import net.java.games.input.ControllerEnvironment
 import org.scalatest._
 
 class JoystickLibraryTests extends FlatSpec with Matchers with BeforeAndAfterAll {
@@ -12,7 +11,7 @@ class JoystickLibraryTests extends FlatSpec with Matchers with BeforeAndAfterAll
 
   "Testing JInput" should "do something" in {
 
-    val devices = ControllerEnvironment.getDefaultEnvironment.getControllers
+    val devices = getAllSystemControllers
 
     for (device <- devices) {
       println(s"device: $device")
